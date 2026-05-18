@@ -15,3 +15,13 @@ metadata:
 spec:
   type: team
   children: []
+---
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: cncf
+  description: Cloud Native Computing Foundation
+spec:
+  type: organization
+  children: []

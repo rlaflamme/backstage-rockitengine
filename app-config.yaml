@@ -1,5 +1,5 @@
 app:
-  title: Scaffolded Backstage App
+  title: Rockit Engine
   baseUrl: http://localhost:3000
 
   # Enable all packages by default, this will discover packages from packages/app/package.json
@@ -18,7 +18,7 @@ app:
           path: /
 
 organization:
-  name: My Company
+  name: Rocking Rocket 
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -109,7 +109,7 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location]
+    - allow: [Component, System, API, Resource, Location, User, Group]
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
@@ -127,6 +127,18 @@ catalog:
       rules:
         - allow: [User, Group]
 
+    ## From backstage learn
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme/org.yaml
+      rules:
+        - allow: [User, Group]
+    ## From backstage learn
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+      rules:
+        - allow: [User, Group]
+
+
     ## Uncomment these lines to add more example data
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
@@ -136,6 +148,11 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
+
+    - type: file
+      target: ../../catalog-info.yaml
+      rules:
+        - allow: [User]
 
 kubernetes:
   # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
